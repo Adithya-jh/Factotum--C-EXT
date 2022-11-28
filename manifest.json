@@ -1,0 +1,27 @@
+{
+  "name": "Fact-o-tum",
+  "description": "An AI which does all the work for you!",
+  "version": "1.0",
+  "manifest_version": 3,
+  "icons": {
+    "48": "assets/48.jpeg",
+    "72": "assets/72.jpeg",
+    "96": "assets/96.jpeg",
+    "144": "assets/144.jpeg"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Fact-o-tum"
+  },
+  "background": {
+    "service_worker": "scripts/contextMenuServiceWorker.js"
+  },
+  "permissions": ["contextMenus", "tabs", "storage"],
+
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["scripts/content.js"]
+    }
+  ]
+}
